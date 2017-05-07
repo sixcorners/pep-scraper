@@ -30,4 +30,4 @@ if __name__ == "__main__":
             scraperwiki.sqlite.save(unique_keys=['PEP'], data=parse_header(tree))
 
     scraperwiki.sql.execute("drop view if exists data")
-    scraperwiki.sql.execute("create view data as select * from swdata order by pep")
+    scraperwiki.sql.execute("create view data as select * from swdata order by cast(pep as int)")
